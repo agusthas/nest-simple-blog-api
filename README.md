@@ -7,24 +7,16 @@
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# NEST BLOG API
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A simple REST Api for a simple blog. It includes Authentication using Passport and a session based token using JWT.
+
+## Tech Stack
+
+**Client:** -
+
+**Server:** [Nest](https://github.com/nestjs/nest)
 
 ## Installation
 
@@ -45,29 +37,41 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## API Reference
 
-```bash
-# unit tests
-$ npm run test
+You have to **signup** and then **login** to be able to apply CRUD for post.
 
-# e2e tests
-$ npm run test:e2e
+#### Sign Up
 
-# test coverage
-$ npm run test:cov
+```http
+  POST /api/v1/auth/signup
 ```
 
-## Support
+| Parameter  | Type     | Description  |
+| :--------- | :------- | :----------- |
+| `name`     | `string` | **Required** |
+| `email`    | `string` | **Required** |
+| `password` | `string` | **Required** |
+| `gender`   | `string` | **Required** |
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+#### Login
 
-## Stay in touch
+```http
+  POST /api/v1/auth/login
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+| Parameter  | Type     | Description  |
+| :--------- | :------- | :----------- |
+| `email`    | `string` | **Required** |
+| `password` | `string` | **Required** |
 
-## License
+## Environment Variables
 
-Nest is [MIT licensed](LICENSE).
+To run this project, you will need to add environment variables to your .env file. A sample of this can be found in [.env.sample](./.env.sample)
+
+## Author
+
+- [SuzuMantan](https://github.com/agusthas)
+
+## Reference
+- [A beginner’s guide to building web API’s with NestJs, Postgres, and Sequelize fundamentals.](https://victoronwuzor.medium.com/a-beginner-guide-to-building-web-apis-with-nestjs-postgres-and-sequelize-fundamentals-13f7e74642ff)

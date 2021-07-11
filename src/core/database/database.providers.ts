@@ -1,9 +1,10 @@
 import { Sequelize } from 'sequelize-typescript';
+import { User } from '../../modules/users/user.entity';
 
 import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { databaseConfig } from './database.config';
 
-export const databaseServices = [
+export const databaseProviders = [
   {
     provide: SEQUELIZE,
     useFactory: async () => {
@@ -24,7 +25,7 @@ export const databaseServices = [
       }
 
       const sequelize = new Sequelize(config); // Registering config to Sequelize
-      sequelize.addModels(['models goes here']); // adding models to sequelize
+      sequelize.addModels([User]); // adding models to sequelize
       await sequelize.sync(); // sync the added models
       return sequelize; // return the instance
     },
